@@ -20,7 +20,7 @@ function stop_and_remove_container() {
 
 function remove_image() {
     # Remove the existing image
-    docker rmi nocodb-local >/dev/null 2>&1
+    docker rmi matthewberryman/nocodb-local >/dev/null 2>&1
 }
 
 function install_dependencies() {
@@ -50,7 +50,7 @@ function package_nocodb() {
 
 function build_image() {
     # build docker
-    docker build . -f Dockerfile.local -t nocodb-local || ERROR="build_image failed"
+    docker buildx build --platform linux/amd64,linux/arm64 . -f Dockerfile.local -t matthewberryman/nocodb-local --push || ERROR="build_image failed"
 }
 
 function log_message() {
