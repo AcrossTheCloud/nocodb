@@ -160,7 +160,7 @@ watch(
       <template #leftExtra>
         <div class="w-3"></div>
       </template>
-      <template v-if="isUIAllowed('workspaceCollaborators')">
+      <template v-if="isUIAllowed('baseDelete')">
         <a-tab-pane key="collaborators" class="w-full h-full">
           <template #tab>
             <div class="tab-title">
